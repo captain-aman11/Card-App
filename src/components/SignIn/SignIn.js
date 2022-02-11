@@ -20,11 +20,8 @@ export default function SignInSide() {
     // eslint-disable-next-line no-console
 
     const localUser = localStorage.getItem(data.get("email"));
-    if (!localUser) {
-      alert("User not Found. Kindly Register Yourself");
-      window.location = "/register";
-      return;
-    } else {
+    if (!localUser) return alert("User not Found. Kindly Register Yourself");
+    else {
       // User found
       // Add user details to session storage
       const user = JSON.parse(localStorage.getItem(data.get("email")));
