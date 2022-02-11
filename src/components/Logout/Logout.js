@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import { useEffect } from "react";
 
-class Logout extends Component {
-  componentDidMount() {
+export default function Logout() {
+  useEffect(() => {
     sessionStorage.clear();
     window.location = "/";
-  }
-  render() {
-    return null;
-  }
+  }, []);
+
+  return null;
 }
-export default Logout;
