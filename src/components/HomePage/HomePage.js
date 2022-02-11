@@ -31,6 +31,10 @@ export default function HomePage() {
   };
 
   const handleSave = (card) => {
+    //If user is not logged in, return
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (!user) return alert("You need to Login first to Save Characters.");
+
     let characters = [];
     let prevChars = JSON.parse(localStorage.getItem("characters"));
 
@@ -43,6 +47,7 @@ export default function HomePage() {
     }
     characters.push(card);
     localStorage.setItem("characters", JSON.stringify(characters));
+    alert("Saved Successfully");
   };
 
   const handleSearch = (e) => {
