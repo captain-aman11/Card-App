@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
 
-export default function SignInSide() {
+export default function SignInSide(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -22,7 +22,7 @@ export default function SignInSide() {
     const localUser = localStorage.getItem(data.get("email"));
     if (!localUser) {
       alert("User not Found. Kindly Register Yourself");
-      window.location = "/register";
+      props.history.push("/register");
       return;
     } else {
       // User found
@@ -35,7 +35,7 @@ export default function SignInSide() {
         alert("Invalid Password");
       }
     }
-    window.location = "/";
+    props.history.push("/");
   };
 
   return (

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-export default function Logout() {
+export default function Logout(props) {
   useEffect(() => {
     sessionStorage.clear();
-    window.location = "/";
-  }, []);
+    props.history.push("/");
+  }, [props.history]);
 
   return null;
 }
