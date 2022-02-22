@@ -18,7 +18,7 @@ function Header() {
           >
             {user && (
               <>
-                <NavLink style={styles.navLink} to="#">
+                <NavLink style={styles.navLink} to="/userprofile">
                   Welcome, {user.name}
                 </NavLink>
                 <NavLink style={styles.navLink} to="/savedcards">

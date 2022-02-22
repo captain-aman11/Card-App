@@ -6,6 +6,7 @@ import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import Header from "./components/Header/Header";
 import SavedCards from "./components/SavedCards/SavedCards";
+import UserProfile from "./components/UserProfile/UserProfile";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" component={SignIn} />
           <Route path="/logout" component={Logout} />
           <Route path="/savedcards" component={SavedCards} />
+          <Route path="/userprofile" component={UserProfile} />
           <Route path="/" component={HomePage} />
         </Switch>
       </div>
