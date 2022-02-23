@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import store from "../../store/configureStore";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -16,15 +16,20 @@ function UserProfile() {
   };
 
   const handleSave = () => {
-    dispatch(userAdded({ somebody: user }));
     dispatch(updateUserDetails({ name }));
+
     localStorage.setItem(
       `${user.email}`,
       JSON.stringify(store.getState().user)
     );
     sessionStorage.setItem("user", JSON.stringify(store.getState().user));
+
     alert("Updated Successfully");
   };
+
+  useEffect(() => {
+    dispatch(userAdded({ somebody: user }));
+  });
 
   return (
     <>

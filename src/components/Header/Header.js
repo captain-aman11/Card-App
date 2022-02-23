@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 function Header() {
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const user = useSelector((state) => state.user);
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
