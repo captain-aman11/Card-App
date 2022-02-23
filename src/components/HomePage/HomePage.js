@@ -2,14 +2,21 @@ import React, { useState, useEffect } from "react";
 import ReactCardFlip from "react-card-flip";
 import { Button, Card } from "react-bootstrap";
 import Grid from "@mui/material/Grid";
+import { useDispatch } from "react-redux";
+import { userAdded } from "../../store/users";
 
 export default function HomePage() {
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  const dispatch = useDispatch();
+
   const [isFlipped, setIsFlipped] = useState(false);
   const [cardData, setCardData] = useState(null);
   const [search, setSearch] = useState("");
 
   // useEffect function
   useEffect(() => {
+    if (user) dispatch(userAdded({ somebody: user }));
+
     //removed async here
     const url = "https://rickandmortyapi.com/api/character";
 
@@ -24,7 +31,7 @@ export default function HomePage() {
       }
     };
     fetchData();
-  }, []);
+  });
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);

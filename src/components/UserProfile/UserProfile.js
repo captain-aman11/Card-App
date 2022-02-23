@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import store from "../../store/configureStore";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
-import { userAdded, updateUserDetails } from "../../store/users";
+import { updateUserDetails } from "../../store/users";
 
 function UserProfile() {
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -26,10 +26,6 @@ function UserProfile() {
 
     alert("Updated Successfully");
   };
-
-  useEffect(() => {
-    dispatch(userAdded({ somebody: user }));
-  });
 
   return (
     <>

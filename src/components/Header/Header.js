@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 function Header() {
-  const user = useSelector((state) => state.user);
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  const name = useSelector((state) => state.user.name);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -21,7 +22,7 @@ function Header() {
             {user && (
               <>
                 <NavLink style={styles.navLink} to="/userprofile">
-                  Welcome, {user.name}
+                  Welcome, {name}
                 </NavLink>
                 <NavLink style={styles.navLink} to="/savedcards">
                   Saved Cards
